@@ -16,17 +16,32 @@ if(isset($_POST['submit'])){
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $auth = $firebase->getAuth();
+    // $auth = $firebase->getAuth();
     // $auth = $factory->createAuth();
 
-    $user = $auth->signInWithEmailAndPassword($email, $password);
+    // $user = $auth->signInWithEmailAndPassword($email, $password);
+
+
+    $ref = "Admin";
+    $data = $database->getReference($ref)->getValue();
+    // foreach($data as $key => $data1){
+    //     $i++;
+        if($email == $data['email'] && $password == $data['password'])
+        {
+            session_start();
+            $_SESSION['login'] = true;
+            header("Location:index.php");
+        }
+        else{
+            header("Location:login.php");
+        }
 
 
     // $user = $auth->getUserWithEmailAndPassword($email,$password);
-    if($user){
-        session_start();
-        $_SESSION['login'] = true;
-        header("Location:index.php");
-    }
+    // if($user){
+    //     session_start();
+    //     $_SESSION['login'] = true;
+    //     header("Location:index.php");
+    // }
 }
 ?>

@@ -1,5 +1,23 @@
 <?php
 include("includes/header.php");
+
+
+include("includes/db.php");
+
+if(isset($_GET['update'])){
+    // $uid = $_POST['uid'];
+    // $email = $_POST['email'];
+    // $status = $_POST['status'];
+    
+    $data = [
+        // 'uid' => $uid,
+        // 'Email' => $email,
+        'Status' => "Aproved"
+    ];
+    
+    $pushData = $database->getReference("WithDraw/".$_GET['update'])->update($data);
+    echo '<script>window.location="redeem.php"</script>';
+}
 ?>
                     <div class="page-content-wrapper ">
 
@@ -15,7 +33,7 @@ include("includes/header.php");
                                                 <li class="breadcrumb-item active">Datatable</li>
                                             </ol>
                                         </div> -->
-                                        <h4 class="page-title">Users</h4>
+                                        <h4 class="page-title">Redeems</h4>
                                     </div>
                                 </div>
                             </div>
@@ -31,22 +49,18 @@ include("includes/header.php");
                                                 default, so all you need to do to use it with your own tables is to call
                                                 the construction function: <code>$().DataTable();</code>.
                                             </p> -->
-                                                <button class="btn btn-primary">
+                                                <!-- <button class="btn btn-primary">
                                                     <a href="adduser.php" style="text-decoration:none; color:white">Add User</a>
-                                                </button>
+                                                </button> -->
                                                 <br />
                                                 <br />
             
-                                            <table id="datatable" class="table table-bordered table-responsive">
+                                            <table id="datatable" class="table table-bordered">
                                                 <thead>
                                                 <tr>
                                                     <th>Name</th>
                                                     <th>Email</th>
-                                                    <!-- <th>password</th> -->
-                                                    <th>Gender</th>
-                                                    <th>Country</th>
-                                                    <!-- <th>Referral</th> -->
-                                                    <th>Date</th>
+                                                    <th>Status</th>
                                                     <th>Operation</th>
                                                 </tr>
                                                 </thead>
@@ -56,9 +70,9 @@ include("includes/header.php");
 
                                                     
 
-                                                    $ref = "Users";
+                                                    $ref = "WithDraw";
                                                     if(isset($_GET['del'])){
-                                                        $database->getReference("Users/".$_GET['del'])->remove();
+                                                        $database->getReference("WithDraw/".$_GET['del'])->remove();
                                                         echo '<script>window.location="users.php"</script>';
                                                         
                                                     }
@@ -69,21 +83,13 @@ include("includes/header.php");
                                                         $i++;
                                                     ?>
                                                 <tr>
-                                                    <td><?php echo $data1['Name']; ?></td>
-                                                    <td><?php echo $data1['Email']; ?></td>
-                                                    <!-- <td><?php echo $data1['password']; ?></td> -->
-                                                    <td><?php echo $data1['Gender']; ?></td>
-                                                    <td><?php echo $data1['Country']; ?></td>
-                                                    <!-- <td><?php echo $data1['Referral']; ?></td> -->
-                                                    <td><?php echo $data1['date']; ?></td>
+                                                    <td><?php echo $data1['uid']; ?></td>
+                                                    <td><?php echo $data1['email']; ?></td>
+                                                    <td><?php echo $data1['Status']; ?></td>
                                                     <td class="text-center">
-                                                        <a href="edituser.php?update=<?php echo $key; ?>"> 
-                                                            <i style="font-size:25px;color:blue;margin-right:8px" class="ion-edit"></i>
+                                                        <a onclick="return confirm('Are you sure to Aprove this Redeem!')" class="btn btn-primary" href="redeem.php?update=<?php echo $key; ?>"> 
+                                                            Aprove
                                                         </a> 
-                                                        <a href="users.php?del=<?php echo $key; ?>"
-                                                        onclick="return confirm('Are you sure to delete!')"> 
-                                                            <i style="font-size:25px;color:#e30513;" class="ion-close-circled"></i>
-                                                        </a>
                                                     </td>
                                                 </tr>
                                                 <?php 
