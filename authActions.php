@@ -2,27 +2,31 @@
 include("includes/db.php");
 
     
-if(isset($_POST['signup'])){
+// if(isset($_POST['signup'])){
     
-    $email = $_POST['emailSignup'];
-    $pass = $_POST['passSignup'];
+//     $email = $_POST['emailSignup'];
+//     $pass = $_POST['passSignup'];
+
+//     $auth = $firebase->getAuth();
+//     $user = $auth->createUserWithEmailAndPassword($email,$pass);
+//     header("Location:index.php");
+// }
+if(isset($_POST['submit'])){
+    
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
     $auth = $firebase->getAuth();
-    $user = $auth->createUserWithEmailAndPassword($email,$pass);
-    header("Location:index.php");
-}
-else{
-    
-    $email = $_POST['emailSignin'];
-    $pass = $_POST['passSignin'];
+    // $auth = $factory->createAuth();
 
-    $auth = $firebase->getAuth();
-    $user = $auth->getUserWithEmailAndPassword($email,$pass);
+    $user = $auth->signInWithEmailAndPassword($email, $password);
+
+
+    // $user = $auth->getUserWithEmailAndPassword($email,$password);
     if($user){
         session_start();
-        $_SESSION['user'] = true;
-        header("Location:home.php");
+        $_SESSION['login'] = true;
+        header("Location:index.php");
     }
 }
-
 ?>

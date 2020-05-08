@@ -4,21 +4,26 @@ include("includes/db.php");
 if(isset($_POST['update'])){
     $name = $_POST['name'];
     $email = $_POST['email'];
-    $message = $_POST['message'];
-    $ref = $_POST['ref'];
+    $gender = $_POST['gender'];
+    $password = $_POST['password'];
+    $date = $_POST['date'];
+    $country = $_POST['country'];
     
     $data = [
-        'name' => $name,
-        'email' => $email,
-        'message' => $message
+        'Name' => $name,
+        'Email' => $email,
+        'Gender' => $gender,
+        'password' => $password,
+        'date' => $date,
+        'Country' => $country
     ];
     
-    $pushData = $database->getReference($ref)->update($data);
-    header("Location:home.php");
+    $pushData = $database->getReference("users/".$_GET['key'])->update($data);
+    header("Location:users.php");
 }
-else if(isset($_GET['key'])){
-    $database->getReference("contact_form_data/".$_GET['key'])->remove();
-    header("Location:retrieve_data.php");
-}
+// else if(isset($_GET['key'])){
+//     $database->getReference("users/".$_GET['key'])->remove();
+//     header("Location:retrieve_data.php");
+// }
 
 ?>
