@@ -51,11 +51,11 @@
                             <li>
                                 <a href="index.php" class="waves-effect">
                                     <i class="mdi mdi-airplay"></i>
-                                    <span> Dashboard <span class="badge badge-pill badge-primary float-right">7</span></span>
+                                    <span> Dashboard <span class="badge badge-pill badge-primary float-right"></span></span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="waves-effect"><i class="mdi mdi-account"></i><span> User </span></a>
+                                <a href="users.php" class="waves-effect"><i class="mdi mdi-account"></i><span> User </span></a>
                             </li>
                             <li>
                                 <a href="#" class="waves-effect"><i class="mdi mdi-calendar-clock"></i><span> Push Notification </span></a>
