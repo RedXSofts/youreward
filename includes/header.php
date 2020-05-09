@@ -139,6 +139,7 @@ if (!isset($_SESSION['login'])) {
                                             if (isset($_GET['action']) && $_GET['action']=="logout") {
                                                 // session_start();
                                                 session_destroy();
+                                                echo '<script>window.location="login.php"</script>';
                                             }
                                             ?>
                                     </div>

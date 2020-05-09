@@ -28,7 +28,10 @@
                 <div class="card-body">
 
                     <h3 class="text-center mt-0 m-b-15">
-                        <a href="#" class="logo logo-admin"><img src="assets/images/logo.png" height="24" alt="logo"></a>
+                        <a href="#" class="logo logo-admin">
+                        <!-- <img src="assets/images/logo.png" height="24" alt="logo"> -->
+                            <h2>You Reward</h2>
+                        </a>
                     </h3>
 
                     <div class="p-3">
