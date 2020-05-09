@@ -5,14 +5,9 @@ include("includes/header.php");
 include("includes/db.php");
 
 if(isset($_GET['update'])){
-    // $uid = $_POST['uid'];
-    // $email = $_POST['email'];
-    // $status = $_POST['status'];
     
     $data = [
-        // 'uid' => $uid,
-        // 'Email' => $email,
-        'Status' => "Aproved"
+        'Status' => "Approved"
     ];
     
     $pushData = $database->getReference("WithDraw/".$_GET['update'])->update($data);
@@ -61,6 +56,7 @@ if(isset($_GET['update'])){
                                                     <th>Name</th>
                                                     <th>Email</th>
                                                     <th>Status</th>
+                                                    <th>Coins</th>
                                                     <th>Operation</th>
                                                 </tr>
                                                 </thead>
@@ -86,9 +82,10 @@ if(isset($_GET['update'])){
                                                     <td><?php echo $data1['uid']; ?></td>
                                                     <td><?php echo $data1['email']; ?></td>
                                                     <td><?php echo $data1['Status']; ?></td>
+                                                    <td><?php echo $data1['Coins']; ?></td>
                                                     <td class="text-center">
-                                                        <a onclick="return confirm('Are you sure to Aprove this Redeem!')" class="btn btn-primary" href="redeem.php?update=<?php echo $key; ?>"> 
-                                                            Aprove
+                                                        <a onclick="return confirm('Are you sure to Approve this Redeem!')" class="btn btn-primary" href="redeem.php?update=<?php echo $key; ?>"> 
+                                                            Approve
                                                         </a> 
                                                     </td>
                                                 </tr>

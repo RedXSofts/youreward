@@ -36,8 +36,9 @@ include("includes/header.php");
                                                 </button>
                                                 <br />
                                                 <br />
-            
-                                            <table id="datatable" class="table table-bordered table-responsive">
+                                            
+                                            <div class=" table-responsive">
+                                            <table id="datatable" class="table table-bordered">
                                                 <thead>
                                                 <tr>
                                                     <th>Name</th>
@@ -64,9 +65,7 @@ include("includes/header.php");
                                                     }
 
                                                     $data = $database->getReference($ref)->getValue();
-                                                    $i = 0;
                                                     foreach($data as $key => $data1){
-                                                        $i++;
                                                     ?>
                                                 <tr>
                                                     <td><?php echo $data1['Name']; ?></td>
@@ -77,7 +76,7 @@ include("includes/header.php");
                                                     <!-- <td><?php echo $data1['Referral']; ?></td> -->
                                                     <td><?php echo $data1['date']; ?></td>
                                                     <td class="text-center">
-                                                        <a href="edituser.php?update=<?php echo $key; ?>"> 
+                                                        <a href="updateuser.php?update=<?php echo $key; ?>"> 
                                                             <i style="font-size:25px;color:blue;margin-right:8px" class="ion-edit"></i>
                                                         </a> 
                                                         <a href="users.php?del=<?php echo $key; ?>"
@@ -91,7 +90,7 @@ include("includes/header.php");
                                                 ?>
                                                 </tbody>
                                             </table>
-            
+                                            </div>
                                         </div>
                                     </div>
                                 </div> <!-- end col -->
