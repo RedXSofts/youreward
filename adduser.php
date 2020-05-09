@@ -1,5 +1,33 @@
 <?php
 include("includes/header.php");
+
+
+
+
+include("includes/db.php");
+
+if(isset($_POST['submit'])){
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $gender = $_POST['gender'];
+    $password = $_POST['password'];
+    $date = $_POST['date'];
+    $country = $_POST['country'];
+    
+    $data = [
+        'Name' => $name,
+        'Email' => $email,
+        'Gender' => $gender,
+        'password' => $password,
+        'date' => $date,
+        'Country' => $country
+    ];
+    $ref = "Users/";
+    $pushData = $database->getReference($ref)->push($data);
+    echo '<script>window.location="users.php"</script>';
+}
+
+
 ?>
                     <div class="page-content-wrapper ">
 
@@ -31,7 +59,7 @@ include("includes/header.php");
                                                     class="highlighter-rouge">.form-control</code> applied to each
                                                 textual HTML5 <code class="highlighter-rouge">&lt;input&gt;</code> <code
                                                         class="highlighter-rouge">type</code>.</p> -->
-                                            <form action="storing_data.php" method="post">
+                                            <form method="post">
                                                 <div class="row">
                                                     <div class="form-group col-sm-6">
                                                         <label for="example-text-input" class=" col-form-label">Name</label>

@@ -21,19 +21,5 @@ if(isset($_POST['submit'])){
     $pushData = $database->getReference($ref)->push($data);
     header("Location:users.php");
 }
-// else{
-//     $name = $_POST['name'];
-//     $email = $_POST['email'];
-//     $message = $_POST['message'];
-    
-//     $data = [
-//         'name' => $name,
-//         'email' => $email,
-//         'message' => $message
-//     ];
-//     $ref = "Users/";
-//     $pushData = $database->getReference($ref)->set($data);
-// }
-
 
 ?>
