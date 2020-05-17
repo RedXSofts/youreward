@@ -16,7 +16,7 @@ if (!isset($_SESSION['login'])) {
         <meta content="Mannatthemes" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        <!-- <link rel="shortcut icon" href="assets/images/favicon.ico"> -->
 
         <link href="assets/plugins/morris/morris.css" rel="stylesheet">
 
@@ -70,7 +70,22 @@ if (!isset($_SESSION['login'])) {
                                 <a href="users.php" class="waves-effect"><i class="mdi mdi-account"></i><span> User </span></a>
                             </li>
                             <li>
+                                <a href="addNotification.php" class="waves-effect"><i class="mdi mdi-account"></i><span> Send Notification </span></a>
+                            </li>
+
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-layers"></i> <span> Redeems </span> <span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="addRedeem.php">Add Redeem</a></li>
+                                    <li><a href="redeem.php">Manage Redeem</a></li>
+                                </ul>
+                            </li>
+
+                            <!-- <li>
                                 <a href="redeem.php" class="waves-effect"><i class="mdi mdi-calendar-clock"></i><span> Redeem </span></a>
+                            </li> -->
+                            <li>
+                                <a href="withdraw.php" class="waves-effect"><i class="mdi mdi-calendar-clock"></i><span> WithDraw </span></a>
                             </li>
 
                             <!-- <li class="has_sub">

@@ -54,7 +54,7 @@ if(isset($_POST['submit'])){
                                     <div class="card m-b-30">
                                         <div class="card-body">
             
-                                            <h4 class="mt-0 header-title">Textual inputs</h4>
+                                            <h4 class="mt-0 header-title">Add User</h4>
                                             <!-- <p class="text-muted m-b-30 font-14">Here are examples of <code
                                                     class="highlighter-rouge">.form-control</code> applied to each
                                                 textual HTML5 <code class="highlighter-rouge">&lt;input&gt;</code> <code
@@ -92,6 +92,7 @@ if(isset($_POST['submit'])){
                                                     <div class="form-group col-sm-6">
                                                         <label for="example-text-input" class=" col-form-label">Country</label>
                                                         <select class="form-control" id="country" name="country">
+                                                            <option value="">Choose Country</option>
                                                             <option value="Afganistan">Afghanistan</option>
                                                             <option value="Albania">Albania</option>
                                                             <option value="Algeria">Algeria</option>

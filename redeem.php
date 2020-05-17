@@ -10,7 +10,7 @@ if(isset($_GET['update'])){
         'Status' => "Approved"
     ];
     
-    $pushData = $database->getReference("WithDraw/".$_GET['update'])->update($data);
+    $pushData = $database->getReference("Redeem/".$_GET['update'])->update($data);
     echo '<script>window.location="redeem.php"</script>';
 }
 ?>
@@ -54,10 +54,10 @@ if(isset($_GET['update'])){
                                                 <thead>
                                                 <tr>
                                                     <th>Name</th>
-                                                    <th>Email</th>
-                                                    <th>Status</th>
+                                                    <th>Dollar</th>
+                                                    <th>Category</th>
                                                     <th>Coins</th>
-                                                    <th>Operation</th>
+                                                    <!-- <th>Operation</th> -->
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -66,9 +66,9 @@ if(isset($_GET['update'])){
 
                                                     
 
-                                                    $ref = "WithDraw";
+                                                    $ref = "Redeem";
                                                     if(isset($_GET['del'])){
-                                                        $database->getReference("WithDraw/".$_GET['del'])->remove();
+                                                        $database->getReference("Redeem/".$_GET['del'])->remove();
                                                         echo '<script>window.location="users.php"</script>';
                                                         
                                                     }
@@ -79,15 +79,15 @@ if(isset($_GET['update'])){
                                                         $i++;
                                                     ?>
                                                 <tr>
-                                                    <td><?php echo $data1['uid']; ?></td>
-                                                    <td><?php echo $data1['email']; ?></td>
-                                                    <td><?php echo $data1['Status']; ?></td>
-                                                    <td><?php echo $data1['Coins']; ?></td>
-                                                    <td class="text-center">
+                                                    <td><?php echo $data1['name']; ?></td>
+                                                    <td><?php echo $data1['dollar']; ?></td>
+                                                    <td><?php echo $data1['category']; ?></td>
+                                                    <td><?php echo $data1['coins']; ?></td>
+                                                    <!-- <td class="text-center">
                                                         <a onclick="return confirm('Are you sure to Approve this Redeem!')" class="btn btn-primary" href="redeem.php?update=<?php echo $key; ?>"> 
                                                             Approve
                                                         </a> 
-                                                    </td>
+                                                    </td> -->
                                                 </tr>
                                                 <?php 
                                                 }
