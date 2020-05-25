@@ -10,7 +10,7 @@ use Kreait\Firebase\ServiceAccount;
 
 // This assumes that you have placed the Firebase credentials in the same directory
 // as this PHP file.
-$serviceAccount = ServiceAccount::fromJsonFile(__DIR__.'/youreward-app-firebase-adminsdk-ncfxt-8923332970.json');
+$serviceAccount = ServiceAccount::fromJsonFile(__DIR__.'/you-reward-firebase-adminsdk-asuxj-71f3539305.json');
 
 
 $firebase = (new Factory)
@@ -18,7 +18,7 @@ $firebase = (new Factory)
     // The following line is optional if the project id in your credentials file
     // is identical to the subdomain of your Firebase project. If you need it,
     // make sure to replace the URL with the URL of your project.
-    ->withDatabaseUri('https://youreward-app.firebaseio.com/')
+    ->withDatabaseUri('https://you-reward.firebaseio.com/')
     ->create();
 
     
