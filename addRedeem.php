@@ -80,8 +80,14 @@ if(isset($_POST['submit'])){
 
                                                     <div class="form-group col-sm-12">
                                                         <label for="example-text-input" class=" col-form-label">Image</label>
-                                                        <input name="image" class="form-control" type="file"  id="example-text-input">
+                                                        <input name="image" class="form-control" type="file"  id="image" accept="RedeemPic/">
+                                                        <button class="btn btn-primary" type="button" onclick="upload()">Upload</button>
+                                                   
                                                     </div>
+<<<<<<< HEAD
+=======
+                                                    
+>>>>>>> ae37c4271b7b103b7c1dfcbf30652758968f2118
                                                 </div>
                                                 <div class="row">
                                                     <div class="form-group col-sm-12 text-center">
@@ -111,7 +117,9 @@ if(isset($_POST['submit'])){
 
         </div>
         <!-- END wrapper -->
-
+        <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-storage.js"></script>
+        <script src="assets/js/uploadImage.js"></script>
 
         <!-- jQuery  -->
         <script src="assets/js/jquery.min.js"></script>
