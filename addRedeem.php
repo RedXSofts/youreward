@@ -84,10 +84,6 @@ if(isset($_POST['submit'])){
                                                         <button class="btn btn-primary" type="button" onclick="upload()">Upload</button>
                                                    
                                                     </div>
-<<<<<<< HEAD
-=======
-                                                    
->>>>>>> ae37c4271b7b103b7c1dfcbf30652758968f2118
                                                 </div>
                                                 <div class="row">
                                                     <div class="form-group col-sm-12 text-center">
