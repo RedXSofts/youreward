@@ -82,7 +82,6 @@ if(isset($_POST['submit'])){
                                                         <label for="example-text-input" class=" col-form-label">Image</label>
                                                         <input name="image" class="form-control" type="file"  id="example-text-input">
                                                     </div>
-                                                    <button type="button" onclick="upload()">Upload</button>
                                                 </div>
                                                 <div class="row">
                                                     <div class="form-group col-sm-12 text-center">
