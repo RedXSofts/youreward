@@ -11,6 +11,7 @@ if(isset($_POST['submit'])){
     $category = $_POST['category'];
     $dollar = $_POST['dollar'];
     $image = $_POST['image'];
+    $image = strval($image);
     
     $data = [
         'Name' => $name,
