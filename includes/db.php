@@ -10,7 +10,7 @@ use Kreait\Firebase\ServiceAccount;
 
 // This assumes that you have placed the Firebase credentials in the same directory
 // as this PHP file.
-$serviceAccount = ServiceAccount::fromJsonFile(__DIR__.'/you-reward-firebase-adminsdk-asuxj-8949971efa.json');
+$serviceAccount = ServiceAccount::fromJsonFile(__DIR__.'/you-reward-firebase-adminsdk-asuxj-71f3539305.json');
 
 
 $firebase = (new Factory)

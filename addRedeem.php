@@ -80,10 +80,11 @@ if(isset($_POST['submit'])){
 
                                                     <div class="form-group col-sm-12">
                                                         <label for="example-text-input" class=" col-form-label">Image</label>
-                                                        <input name="image" class="form-control" type="file"  id="image" accept="RedeemPic/">
-                                                        <button class="btn btn-primary" type="button" onclick="upload()">Upload</button>
-                                                   
+                                                        <progress value="0" max="100" id="uploader">0%</progress>
+                                                        <input class="form-control" type="file"  id="fileButton">
+                                                        <input type="hidden" name="image" id="image" value="">
                                                     </div>
+                                                    <!-- <button type="button" onclick="upload()">Upload</button> -->
                                                 </div>
                                                 <div class="row">
                                                     <div class="form-group col-sm-12 text-center">
@@ -113,9 +114,61 @@ if(isset($_POST['submit'])){
 
         </div>
         <!-- END wrapper -->
-        <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-storage.js"></script>
-        <script src="assets/js/uploadImage.js"></script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<!-- <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script> -->
+<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<!-- <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-analytics.js"></script> -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBmkLLCxbQeDfhavJ_TBZVS7NAVuEKsn9c",
+    authDomain: "you-reward.firebaseapp.com",
+    databaseURL: "https://you-reward.firebaseio.com",
+    projectId: "you-reward",
+    storageBucket: "you-reward.appspot.com",
+    messagingSenderId: "274349500421",
+    appId: "1:274349500421:web:3e0d51fcdb250cc2a9d46c",
+    measurementId: "G-REHQM576Q6"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+//   firebase.analytics();
+
+var fileButton = document.getElementById('fileButton');
+var image = document.getElementById('image');
+var uploader = document.getElementById('uploader');
+
+fileButton.addEventListener('change', function(e) {
+    var file = e.target.files[0];
+
+    var storageRef = firebase.storage().ref('Redeem Pic/'+file.name);
+
+    // storageRef.put(file);
+
+
+
+    var uploadTask = storageRef.put(file);
+
+    uploadTask.on('state_changed', function (snapshot) {
+        var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+
+        uploader.value = progress;
+        // console.log("upload is " + progress + "done");
+    }, function (error) {
+
+        // console.log(error.message);
+    }, function () {
+        uploadTask.snapshot.ref.getDownloadURL().then(function (DownloadURL) {
+            console.log(DownloadURL);
+            image.value = DownloadURL;
+        })
+    })
+});
+</script>
 
         <!-- jQuery  -->
         <script src="assets/js/jquery.min.js"></script>
