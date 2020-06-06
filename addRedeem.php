@@ -11,13 +11,15 @@ if(isset($_POST['submit'])){
     $category = $_POST['category'];
     $dollar = $_POST['dollar'];
     $image = $_POST['image'];
+    $coins = $_POST['coins'];
     $image = strval($image);
     
     $data = [
-        'Name' => $name,
+        'name' => $name,
         'category' => $category,
         'dollar' => $dollar,
-        'image' => $image
+        'image' => $image,
+        'coins' => $coins
     ];
     $ref = "Redeem/";
     $pushData = $database->getReference($ref)->push($data);
