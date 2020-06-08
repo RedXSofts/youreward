@@ -12,6 +12,8 @@ if(isset($_POST['submit'])){
     $dollar = $_POST['dollar'];
     $image = $_POST['image'];
     $coins = $_POST['coins'];
+    $disclaimer = $_POST['disclaimer'];
+    $country = $_POST['country'];
     $image = strval($image);
     
     $data = [
@@ -19,7 +21,10 @@ if(isset($_POST['submit'])){
         'category' => $category,
         'dollar' => $dollar,
         'image' => $image,
-        'coins' => $coins
+        'coins' => $coins,
+        'disclaimer' => $disclaimer,
+        'country' => $country,
+        'id'=>""
     ];
     $ref = "Redeem/";
     $pushData = $database->getReference($ref)->push($data);
@@ -77,6 +82,22 @@ if(isset($_POST['submit'])){
                                                     <div class="form-group col-sm-6">
                                                         <label for="example-text-input" class=" col-form-label">Coins</label>
                                                         <input name="coins" class="form-control" type="number"  id="example-text-input">
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="form-group col-sm-6">
+                                                        <label for="example-text-input" class=" col-form-label">Disclaimer</label>
+                                                        <input name="disclaimer" class="form-control" type="text" placeholder="Enter Disclaimer" id="example-text-input">
+                                                    </div>
+                                                    <div class="form-group col-sm-6">
+                                                        <label for="example-text-input" class=" col-form-label">Country</label>
+                                                        <select name="country" class="form-control" >
+                                                        <option value="">Select Country</option>
+                                                            <option value="Malaysia">Malaysia</option>
+                                                            <option value="Singapore">Singapore</option>
+                                                            <option value="Others country">Others country</option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                                 <div class="row">

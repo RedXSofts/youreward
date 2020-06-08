@@ -77,6 +77,7 @@ if (!isset($_SESSION['login'])) {
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-layers"></i> <span> Redeems </span> <span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="addRedeem.php">Add Redeem</a></li>
+                                    <li><a href="addList.php">Add List</a></li>
                                     <li><a href="redeem.php">Manage Redeem</a></li>
                                 </ul>
                             </li>
