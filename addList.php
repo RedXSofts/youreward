@@ -13,6 +13,8 @@ if(isset($_POST['submit'])){
     $coins = $_POST['coins'];
     
     $data = [
+        // 'dollar' => $dollar,
+        // 'coins' => $coins
         'dollar' => $dollar,
         'coins' => $coins
     ];
