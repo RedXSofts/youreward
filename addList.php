@@ -9,17 +9,14 @@ include("includes/db.php");
 if(isset($_POST['submit'])){
     $key = $_POST['key'];
     $dollar = $_POST['dollar'];
-    $image = $_POST['image'];
     $coins = $_POST['coins'];
     
     $data = [
-        // 'dollar' => $dollar,
-        // 'coins' => $coins
         'dollar' => $dollar,
         'coins' => $coins
     ];
     $ref = "Redeem/";
-    $pushData = $database->getReference($ref)->push($data);
+    $pushData = $database->getReference("Redeem/".$key)->child('list')->push($data);
     echo '<script>window.location="redeem.php"</script>';
 }
 

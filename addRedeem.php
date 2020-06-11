@@ -24,7 +24,7 @@ if(isset($_POST['submit'])){
         'coins' => $coins,
         'disclaimer' => $disclaimer,
         'country' => $country,
-        'id'=>""
+        'id'=>"",
     ];
     $ref = "Redeem/";
     $pushData = $database->getReference($ref)->push($data);
