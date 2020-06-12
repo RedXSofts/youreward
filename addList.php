@@ -13,11 +13,19 @@ if(isset($_POST['submit'])){
     
     $data = [
         'dollar' => $dollar,
-        'coins' => $coins
+        'coins' => $coins,
+        'id' => ''
     ];
-    $ref = "Redeem/";
-    $pushData = $database->getReference("Redeem/".$key)->child('list')->push($data);
-    echo '<script>window.location="redeem.php"</script>';
+    // $ref = "Redeem/".$key."/"."List/";
+    $pushKey = $database->getReference("Redeem/".$key."/"."list/")->push($data)->getKey();
+
+    $data = [
+        'dollar' => $dollar,
+        'coins' => $coins,
+        'id'=>$pushKey,
+    ];
+    $pushData = $database->getReference("Redeem/".$key."/"."list/".$pushKey)->update($data);
+    echo '<script>window.location="addList.php"</script>';
 }
 
 

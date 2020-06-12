@@ -15,7 +15,6 @@ if(isset($_POST['submit'])){
     $disclaimer = $_POST['disclaimer'];
     $country = $_POST['country'];
     $image = strval($image);
-    
     $data = [
         'name' => $name,
         'category' => $category,
@@ -26,8 +25,21 @@ if(isset($_POST['submit'])){
         'country' => $country,
         'id'=>"",
     ];
+    
     $ref = "Redeem/";
-    $pushData = $database->getReference($ref)->push($data);
+    $pushKey = $database->getReference($ref)->push($data)->getKey();
+
+    $data = [
+        'name' => $name,
+        'category' => $category,
+        'dollar' => $dollar,
+        'image' => $image,
+        'coins' => $coins,
+        'disclaimer' => $disclaimer,
+        'country' => $country,
+        'id'=>$pushKey,
+    ];
+    $pushData = $database->getReference("Redeem/".$pushKey)->update($data);
     echo '<script>window.location="redeem.php"</script>';
 }
 
