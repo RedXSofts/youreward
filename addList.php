@@ -27,13 +27,9 @@ if(isset($_POST['submit'])){
     $pushData = $database->getReference("Redeem/".$key."/"."list/".$pushKey)->update($data);
     echo '<script>window.location="addList.php"</script>';
 }
-
-
 ?>
                     <div class="page-content-wrapper ">
-
                         <div class="container-fluid">
-
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="page-title-box">
@@ -49,7 +45,6 @@ if(isset($_POST['submit'])){
                                 </div>
                             </div>
                             <!-- end page title end breadcrumb -->
-
                             <div class="row">
                                 <div class="col-12">
                                     <div class="card m-b-30">
@@ -73,10 +68,7 @@ if(isset($_POST['submit'])){
                                                         ?>
                                                         <option value='<?php echo $key; ?>'><?php echo $data1['name'];?></option>;
                                                    
-                                                   <?php
-                                                    }
-
-                                                    ?>
+                                                   <?php } ?>
                                                         </select>
                                                     </div>
                                                     <div class="form-group col-sm-4">
@@ -88,15 +80,10 @@ if(isset($_POST['submit'])){
                                                         <input name="dollar" class="form-control" type="number" placeholder="Enter dollar" id="example-text-input">
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    
-                                                    
-                                                </div>
+                                                <div class="row"></div>
                                                 <div class="row">
                                                     <div class="form-group col-sm-12 text-center">
-                                                        <input class="btn btn-primary" name="submit" value=
-                                                        
-                                                        'insert Data' type="submit"  id="example-text-input">
+                                                        <input class="btn btn-primary" name="submit" value='insert Data' type="submit"  id="example-text-input">
                                                     </div>
                                                 </div>
                                             </form>
